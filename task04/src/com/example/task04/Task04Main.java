@@ -1,5 +1,7 @@
 package com.example.task04;
 
+import java.util.Locale;
+import java.util.Scanner;
 import java.io.IOException;
 
 public class Task04Main {
@@ -10,5 +12,20 @@ public class Task04Main {
         // - проверить, что получилось 351.731900
 
         System.out.println("0.0");
+        SumOfDubles();
+    }
+
+    public static void SumOfDubles() {
+        Scanner scan = new Scanner(System.in);
+        double result = 0;
+
+        while (scan.hasNext()) {
+            String buff = scan.next();
+            try {
+                result += Double.parseDouble(buff);
+            } catch (Exception exept) {
+            }
+        }
+        System.out.printf(Locale.ENGLISH, "%.6f", result);
     }
 }
