@@ -9,5 +9,10 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+
+        //создание массива байтов длинны потока(in - поток, avalible - количество чисел, которое можно считать)
+        byte[] bytes = new byte[System.in.available()];
+        System.in.read(bytes);
+        System.out.append(new String(bytes).replaceAll("\r\n","\n"));
     }
 }
