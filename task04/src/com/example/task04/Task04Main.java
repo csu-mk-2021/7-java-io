@@ -11,7 +11,6 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
 
-        System.out.println("0.0");
         SumOfDubles();
     }
 
