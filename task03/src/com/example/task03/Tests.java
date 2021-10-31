@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Tests {
     private void check(byte[] x, String charset, String output) throws IOException {
         try (ByteArrayInputStream in = new ByteArrayInputStream(x)) {
-            Assertions.assertThat(Task03Main.readAsString(in, Charset.forName(charset))).as("Input: %s", Arrays.toString(x)).isEqualTo(output);
+            Assertions.assertThat(Task03Main.ReadNormally(in, Charset.forName(charset))).as("Input: %s", Arrays.toString(x)).isEqualTo(output);
         }
     }
 
@@ -31,9 +31,9 @@ public class Tests {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNull() throws IOException {
-        Task03Main.readAsString(null, null);
-        Task03Main.readAsString(new ByteArrayInputStream(new byte[0]), null);
-        Task03Main.readAsString(null, Charset.defaultCharset());
+        Task03Main.ReadNormally(null, null);
+        Task03Main.ReadNormally(new ByteArrayInputStream(new byte[0]), null);
+        Task03Main.ReadNormally(null, Charset.defaultCharset());
     }
 
 

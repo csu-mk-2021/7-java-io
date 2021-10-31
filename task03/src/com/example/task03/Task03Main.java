@@ -3,6 +3,7 @@ package com.example.task03;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.io.*;
 
 public class Task03Main {
     public static void main(String[] args) throws IOException {
@@ -14,8 +15,23 @@ public class Task03Main {
         */
     }
 
-    public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+    public static String ReadNormally(InputStream inputStream, Charset charset) throws IOException {
+
+        if (inputStream == null || charset == null) {
+            throw new IllegalArgumentException();
+        }
+
+        BufferedReader read_norm = new BufferedReader(new InputStreamReader(inputStream, charset));
+
+        String result = "";
+        int temp = read_norm.read();
+
+
+        while (temp != -1) {
+            result += (char) temp;
+            temp = read_norm.read();
+        }
+
+        return result;
     }
 }
